@@ -61,16 +61,11 @@ class Game{
             }
            
             // Add code to diplay the scores of both 
-            if(player.index !== null) {
-                for(var i = 0; i < fruitGroup.length; i++) {
-                    if(fruitGroup.get(i).isTouching(players)) {
-                        fruitGroup.get(i).destroy();
-                        player.score =player.score+1;
-                        player.update();
-                    }
-                }
-            }
-
+            textSize(25);
+            fill("white");
+            text("Player 1:" +allPlayers.player1.score,50,50);
+            text("pLAYER 2:" +allPlayers.player2.score,50,100);
+            
             // the players on the screen
             textSize(25);
             fill("white");
@@ -111,23 +106,32 @@ class Game{
         }
 
         // Add code to destroy fruits, calculate scores and
+        if(player.index !== null) {
+            for(var i = 0; i < fruitGroup.length; i++) {
+                if(fruitGroup.get(i).isTouching(players)) {
+                    fruitGroup.get(i).destroy();
+                    player.score =player.score+1;
+                    player.update();
+                }
+            }
+        }
         // update the scores to the database
 
 
         // Add code for game end condition
-
+        if(player.score >= 10) {
+            this.end()
+        }
 
     }
 
     end(){
 
        // Add code to update game state and display Game Over
-        Game.update(2);
+        game.update(2);
         clear();
         fill("blue");
         textSize(40);
-        text("Game Over", 350,300);
-
-       
+        text("Game Over", 350,300);       
     }
 }
