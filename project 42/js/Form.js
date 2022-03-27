@@ -48,7 +48,7 @@ class Form{
         // Make reset button reset the values in the database
         this.reset.mousePressed(() => {
             player.updateCount(0);
-            Game.update(0);
+            game.update(0);
         });
         
         
